@@ -6,6 +6,11 @@
         "php": ">=5.3.3",
         "fuel/fuel": "1.8.*"
     },
+    "autoload": {
+        "psr-4": {
+            "imasami\\FactoryGas": ["src"]
+        }
+    },
     "license": "MIT",
     "authors": [
         {
