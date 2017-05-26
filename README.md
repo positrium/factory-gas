@@ -7,9 +7,9 @@
 copy `vendor/imasami/factory-gas/tests/factories.php.dis` to below.
 
 ```
-tests
- |
- `- factories.php
+app
+ `--- tests
+       `--- factories.php
 ```
 
 define factory to `factories.php`
