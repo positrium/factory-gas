@@ -12,7 +12,7 @@
 
 ## setup
 
-copy `vendor/imasami/factory-gas/tests/factories.php.dis` to below.
+copy `vendor/imasami/factory-gas/tests/factories.php.dist` to below.
 
 ```
 app
