@@ -1,0 +1,17 @@
+{
+    "name": "imasami/factory-gas",
+    "description": "Simple lib like a FactoryGirl for FuelPHP.",
+    "type": "library",
+    "require": {
+        "php": ">=5.3.3",
+        "fuel/fuel": "1.8.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ito",
+            "email": "ito_ma@ap-com.co.jp"
+        }
+    ],
+    "minimum-stability": "stable"
+}
