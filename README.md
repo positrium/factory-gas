@@ -2,6 +2,14 @@
 
 ![](https://img.shields.io/badge/FuelPHP-1.8.*-blue.svg)
 
+## composer
+
+```
+"require-dev": {
+	"imasami/factory-gas": "*@dev"
+},
+```
+
 ## setup
 
 copy `vendor/imasami/factory-gas/tests/factories.php.dis` to below.
@@ -12,9 +20,9 @@ app
        `--- factories.php
 ```
 
-define factory to `factories.php`
+define factories to `factories.php`
 
-```
+```php
 <?php
 
 use imasami\FactoryGas\FactoryGas;
@@ -39,7 +47,7 @@ $factory->define('users', 'Controller_Users_Test_fail', [
 
 build to memory.
 
-```
+```php
 <?php
 
 use imasami\FactoryGas\FactoryGas;
@@ -65,7 +73,7 @@ class Controller_Users_Test extends \PHPUnit_Framework_TestCase
 
 create record to database.
 
-```
+```php
 <?php
 
 use imasami\FactoryGas\FactoryGas;
