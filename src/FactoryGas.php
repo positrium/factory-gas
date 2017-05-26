@@ -58,7 +58,7 @@ class FactoryGas
   public function create($name)
   {
     DB::insert($this->factories[$name]['table'])->set($this->factories[$name]['param'])->execute();
-    return DB::select()->from($this->factories[$name]['table'])->where($this->factories[$name]['param'])->execute();
+    return DB::select()->from($this->factories[$name]['table'])->where($this->factories[$name]['param'])->execute()->current();
   }
 
   /**
