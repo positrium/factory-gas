@@ -70,4 +70,12 @@ class FactoryGas
   }
 }
 
-require_once APPPATH.'tests/factories.php';
+$suffix = '_factory.php';
+$dir = APPPATH . 'tests/factories/';
+$len = strlen($suffix);
+foreach (scandir($dir) as $file) {
+  if (substr($file, strlen($file) - $len, $len) !== $suffix) {
+    continue;
+  }
+  require_once($dir . $file);
+}

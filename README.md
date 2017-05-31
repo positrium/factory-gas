@@ -12,15 +12,18 @@
 
 ## setup
 
-copy `vendor/imasami/factory-gas/tests/factories.php.dist` to below.
+copy `vendor/imasami/factory-gas/tests/factories/foo_factory.php.dist` to below.
+`_factory.php` is suffix.
 
 ```
 app
  `--- tests
-       `--- factories.php
+       `--- factories
+             `--- brabra_success_factory.php
+             `--- brabra_fail_factory.php
 ```
 
-define factories to `factories.php`
+define factories to `brabra_success_factory.php`
 
 ```php
 <?php
@@ -34,6 +37,17 @@ $factory->define('users', 'Controller_Users_Test_success', [
   'name' => 'Alan',
   'age' => 25
 ]);
+```
+
+define factories to `brabra_fail_factory.php`
+
+```php
+<?php
+
+use imasami\FactoryGas\FactoryGas;
+$factory = FactoryGas::getInstance();
+
+// ---------------------------------------------------------------------------
 
 $factory->define('users', 'Controller_Users_Test_fail', [
   'name' => 'Bob',
