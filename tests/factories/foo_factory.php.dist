@@ -7,11 +7,10 @@
  * Time: 15:04
  */
 use imasami\FactoryGas\FactoryGas;
-$factory = FactoryGas::getInstance();
 
 // ---------------------------------------------------------------------------
 
-$factory->define('TABLE_NAME', 'FACTORY_NAME', [
+FactoryGas::define('TABLE_NAME', 'FACTORY_NAME', [
   'COLUMN_1' => 1,
   'COLUMN_2' => 1,
 ]);
