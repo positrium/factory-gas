@@ -68,6 +68,16 @@ class FactoryGas
   {
     return $this->factories;
   }
+
+  /**
+   * truncate db table.
+   *
+   * @param $name
+   */
+  public function truncate($name)
+  {
+    \DBUtil::truncate_table($this->factories[$name]['table']);
+  }
 }
 
 $suffix = '_factory.php';
