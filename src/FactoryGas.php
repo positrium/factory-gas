@@ -6,86 +6,99 @@ use Fuel\Core\DB;
 
 class FactoryGas
 {
-  private static $instance;
+    private static $instance;
 
-  protected $factories = [];
+    protected static $factories = [];
 
-  private function __construct()
-  {
-  }
-
-  public static function getInstance()
-  {
-    if (self::$instance == null) {
-      self::$instance = new FactoryGas();
+    private function __construct()
+    {
     }
-    return self::$instance;
-  }
 
-  /**
-   * define factory.
-   *
-   * @param $name
-   * @param array $kvs
-   */
-  public function define($table, $name, array $kvs)
-  {
-    $this->factories[$name] = [
-      'table' => $table,
-      'param' => $kvs
-    ];
-  }
+    private static function getInstance()
+    {
+        if (self::$instance == null) {
+            self::$instance = new FactoryGas();
 
-  /**
-   * create array in memory.
-   *
-   * @param $name
-   *
-   * @return mixed
-   */
-  public function build($name)
-  {
-    return $this->factories[$name]['param'];
-  }
+            $suffix = '_factory.php';
+            if (!defined('APPPATH')) {
+                define('APPPATH', './');
+            }
+            $dir = APPPATH . 'tests/factories/';
+            $len = strlen($suffix);
+            foreach (scandir($dir) as $file) {
+                if (substr($file, strlen($file) - $len, $len) !== $suffix) {
+                    continue;
+                }
+                require_once $dir . $file;
+            }
+        }
+        return self::$instance;
+    }
 
-  /**
-   * create db record.
-   *
-   * @param $name
-   *
-   * @return object
-   */
-  public function create($name)
-  {
-    DB::insert($this->factories[$name]['table'])->set($this->factories[$name]['param'])->execute();
-    return DB::select()->from($this->factories[$name]['table'])->where($this->factories[$name]['param'])->execute()->current();
-  }
+    /**
+     * define factory.
+     *
+     * @param $name
+     * @param array $kvs
+     */
+    public static function define($table, $name, array $kvs)
+    {
+        self::getInstance();
 
-  /**
-   * @return array
-   */
-  public function getFactories()
-  {
-    return $this->factories;
-  }
+        self::$factories[$name] = [
+            'table' => $table,
+            'param' => $kvs,
+        ];
+    }
 
-  /**
-   * truncate db table.
-   *
-   * @param $name
-   */
-  public function truncate($name)
-  {
-    \DBUtil::truncate_table($this->factories[$name]['table']);
-  }
-}
+    /**
+     * create array in memory.
+     *
+     * @param $name
+     *
+     * @return mixed
+     */
+    public static function build($name)
+    {
+        self::getInstance();
 
-$suffix = '_factory.php';
-$dir = APPPATH . 'tests/factories/';
-$len = strlen($suffix);
-foreach (scandir($dir) as $file) {
-  if (substr($file, strlen($file) - $len, $len) !== $suffix) {
-    continue;
-  }
-  require_once($dir . $file);
+        return self::$factories[$name]['param'];
+    }
+
+    /**
+     * create db record.
+     *
+     * @param $name
+     *
+     * @return object
+     */
+    public static function create($name)
+    {
+        self::getInstance();
+
+        DB::insert(self::$factories[$name]['table'])->set(self::$factories[$name]['param'])->execute();
+        return DB::select()->from(self::$factories[$name]['table'])->where(self::$factories[$name]['param'])->execute()->current();
+    }
+
+    /**
+     * @return array
+     */
+    public static function getFactories()
+    {
+        self::getInstance();
+
+        return self::$factories;
+    }
+
+    /**
+     * truncate db table.
+     *
+     * @param $name
+     */
+    public static function truncate($name)
+    {
+        self::getInstance();
+
+        \DBUtil::truncate_table(self::$factories[$name]['table']);
+    }
 }

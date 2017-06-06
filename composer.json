@@ -1,22 +1,25 @@
 {
-    "name": "imasami/factory-gas",
-    "description": "Simple lib like a FactoryGirl for FuelPHP.",
-    "type": "library",
-    "require": {
-        "php": ">=5.3.3",
-        "fuel/core": "1.8.*"
-    },
-    "autoload": {
-        "psr-4": {
-            "imasami\\FactoryGas\\": ["src"]
-        }
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "ito",
-            "email": "ito_ma@ap-com.co.jp"
-        }
-    ],
-    "minimum-stability": "stable"
+		"name": "imasami/factory-gas",
+		"description": "Simple lib like a FactoryGirl for FuelPHP.",
+		"type": "library",
+		"require": {
+				"php": ">=5.3.3",
+				"fuel/core": "^1.8"
+		},
+		"require-dev": {
+				"phpunit/phpunit": "^6.2"
+		},
+		"autoload": {
+				"psr-4": {
+						"imasami\\FactoryGas\\": ["src"]
+				}
+		},
+		"license": "MIT",
+		"authors": [
+				{
+						"name": "ito",
+						"email": "ito_ma@ap-com.co.jp"
+				}
+		],
+		"minimum-stability": "stable"
 }
