@@ -6,7 +6,7 @@
 
 ```
 "require-dev": {
-	"imasami/factory-gas": "*@dev"
+	"imasami/factory-gas": "dev-master"
 },
 ```
 
