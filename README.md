@@ -1,6 +1,7 @@
 # factory-gas
 
 ![](https://img.shields.io/badge/FuelPHP-1.8.*-blue.svg)
+[![Build Status](https://travis-ci.org/imasami/factory-gas.svg?branch=master)](https://travis-ci.org/imasami/factory-gas)
 
 ## composer
 
@@ -29,11 +30,10 @@ define factories to `brabra_success_factory.php`
 <?php
 
 use imasami\FactoryGas\FactoryGas;
-$factory = FactoryGas::getInstance();
 
 // ---------------------------------------------------------------------------
 
-$factory->define('users', 'Controller_Users_Test_success', [
+FactoryGas::define('users', 'Controller_Users_Test_success', [
   'name' => 'Alan',
   'age' => 25
 ]);
@@ -45,11 +45,10 @@ define factories to `brabra_fail_factory.php`
 <?php
 
 use imasami\FactoryGas\FactoryGas;
-$factory = FactoryGas::getInstance();
 
 // ---------------------------------------------------------------------------
 
-$factory->define('users', 'Controller_Users_Test_fail', [
+FactoryGas::define('users', 'Controller_Users_Test_fail', [
   'name' => 'Bob',
   'age' => 12
 ]);
@@ -68,12 +67,9 @@ use imasami\FactoryGas\FactoryGas;
 
 class Controller_Users_Test extends \PHPUnit_Framework_TestCase
 {
-  protected $factory;
-
   protected function setUp()
   {
-    $this->factory = FactoryGas::getInstance();
-    $model = $this->factory->build('Controller_Users_Test_success');
+    $model = FactoryGas::build('Controller_Users_Test_success');
     print_r($model);
     // Array
     // (
@@ -94,16 +90,26 @@ use imasami\FactoryGas\FactoryGas;
 
 class Controller_Users_Test extends \PHPUnit_Framework_TestCase
 {
-  protected $factory;
-
   protected function setUp()
   {
-    $this->factory = FactoryGas::getInstance();
-    $model = $this->factory->create('Controller_Users_Test_success');
+    $model = FactoryGas::create('Controller_Users_Test_success');
     print($model['id']);
     // 11
     $this->factory->create('Controller_Users_Test_fail');
   }
 ```
 
+### truncate
 
+```php
+<?php
+
+use imasami\FactoryGas\FactoryGas;
+
+class Controller_Users_Test extends \PHPUnit_Framework_TestCase
+{
+  protected function tearDown()
+  {
+    FactoryGas::truncate('Controller_Users_Test_success');
+  }
+```
