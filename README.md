@@ -2,6 +2,7 @@
 
 ![](https://img.shields.io/badge/FuelPHP-1.8.*-blue.svg)
 [![Build Status](https://travis-ci.org/imasami/factory-gas.svg?branch=master)](https://travis-ci.org/imasami/factory-gas)
+[![Packagist](https://img.shields.io/packagist/dt/imasami/factory-gas.svg?style=flat-square)](https://packagist.org/packages/imasami/factory-gas)
 
 ## composer
 
