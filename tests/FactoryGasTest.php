@@ -34,6 +34,17 @@ class FactoryGasTest extends TestCase
         $this->assertEquals(25, $param['age']);
     }
 
+    public function testIncludeFactoryFile()
+    {
+        $param = FactoryGas::build('sample_defined_on_factory_1');
+        $this->assertEquals(1, $param['COLUMN_1']);
+        $this->assertEquals(9, $param['COLUMN_2']);
+
+        $param = FactoryGas::build('sample_defined_on_factory_2');
+        $this->assertEquals(255, $param['COLUMN_1']);
+        $this->assertEquals(999, $param['COLUMN_2']);
+    }
+
     protected function tearDown()
     {
 
