@@ -95,7 +95,7 @@ class Controller_Users_Test extends \PHPUnit_Framework_TestCase
     $model = FactoryGas::create('Controller_Users_Test_success');
     print($model['id']);
     // 11
-    $this->factory->create('Controller_Users_Test_fail');
+    FactoryGas::create('Controller_Users_Test_fail');
   }
 ```
 
