@@ -95,10 +95,16 @@ class FactoryGas
      *
      * @param $name
      */
-    public static function truncate($name)
+    public static function truncate($name = "all")
     {
         self::getInstance();
 
-        \DBUtil::truncate_table(self::$factories[$name]['table']);
+        if ($name == "all") {
+            foreach (self::$factories as $factory) {
+                \DBUtil::truncate_table($factory['table']);
+            }
+        } else {
+            \DBUtil::truncate_table(self::$factories[$name]['table']);
+        }
     }
 }
