@@ -76,6 +76,7 @@ class FactoryGas
     {
         self::getInstance();
 
+			  DB::set_charset('utf8');
         DB::insert(self::$factories[$name]['table'])->set(self::$factories[$name]['param'])->execute();
         return DB::select()->from(self::$factories[$name]['table'])->where(self::$factories[$name]['param'])->execute()->current();
     }
