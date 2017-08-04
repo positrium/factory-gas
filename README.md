@@ -1,20 +1,19 @@
 # factory-gas
 
 ![](https://img.shields.io/badge/FuelPHP-1.8.*-blue.svg)
-[![Build Status](https://travis-ci.org/imasami/factory-gas.svg?branch=master)](https://travis-ci.org/imasami/factory-gas)
-[![Packagist](https://img.shields.io/packagist/dt/imasami/factory-gas.svg?style=flat-square)](https://packagist.org/packages/imasami/factory-gas)
+[![Packagist](https://img.shields.io/packagist/dt/positrium/factory-gas.svg?style=flat-square)](https://packagist.org/packages/positrium/factory-gas)
 
 ## composer
 
 ```
 "require-dev": {
-	"imasami/factory-gas": "dev-master"
+	"positrium/factory-gas": "dev-master"
 },
 ```
 
 ## setup
 
-copy `vendor/imasami/factory-gas/tests/factories/foo_factory.php.dist` to below.
+copy `vendor/positrium/factory-gas/tests/factories/foo_factory.php.dist` to below.
 `_factory.php` is suffix.
 
 ```
@@ -30,7 +29,7 @@ define factories to `brabra_success_factory.php`
 ```php
 <?php
 
-use imasami\FactoryGas\FactoryGas;
+use positrium\FactoryGas\FactoryGas;
 
 // ---------------------------------------------------------------------------
 
@@ -45,7 +44,7 @@ define factories to `brabra_fail_factory.php`
 ```php
 <?php
 
-use imasami\FactoryGas\FactoryGas;
+use positrium\FactoryGas\FactoryGas;
 
 // ---------------------------------------------------------------------------
 
@@ -64,7 +63,7 @@ build to memory.
 ```php
 <?php
 
-use imasami\FactoryGas\FactoryGas;
+use positrium\FactoryGas\FactoryGas;
 
 class Controller_Users_Test extends \PHPUnit_Framework_TestCase
 {
@@ -87,7 +86,7 @@ create record to database.
 ```php
 <?php
 
-use imasami\FactoryGas\FactoryGas;
+use positrium\FactoryGas\FactoryGas;
 
 class Controller_Users_Test extends \PHPUnit_Framework_TestCase
 {
@@ -105,7 +104,7 @@ class Controller_Users_Test extends \PHPUnit_Framework_TestCase
 ```php
 <?php
 
-use imasami\FactoryGas\FactoryGas;
+use positrium\FactoryGas\FactoryGas;
 
 class Controller_Users_Test extends \PHPUnit_Framework_TestCase
 {
