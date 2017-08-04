@@ -1,6 +1,6 @@
 <?php
 
-namespace imasami\FactoryGas;
+namespace positrium\FactoryGas;
 
 use Fuel\Core\DB;
 
