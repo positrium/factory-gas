@@ -1,5 +1,5 @@
 <?php
-use imasami\FactoryGas\FactoryGas;
+use positrium\FactoryGas\FactoryGas;
 use PHPUnit\Framework\TestCase;
 
 class FactoryGasTest extends TestCase
