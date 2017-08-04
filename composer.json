@@ -1,5 +1,5 @@
 {
-		"name": "imasami/factory-gas",
+		"name": "positrium/factory-gas",
 		"description": "Simple lib like a FactoryGirl for FuelPHP.",
 		"type": "library",
 		"require": {
@@ -11,14 +11,13 @@
 		},
 		"autoload": {
 				"psr-4": {
-						"imasami\\FactoryGas\\": ["src"]
+						"positrium\\FactoryGas\\": ["src"]
 				}
 		},
 		"license": "MIT",
 		"authors": [
 				{
-						"name": "ito",
-						"email": "ito_ma@ap-com.co.jp"
+						"name": "positrium"
 				}
 		],
 		"minimum-stability": "stable"
